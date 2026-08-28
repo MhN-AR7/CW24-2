@@ -93,3 +93,61 @@ Light
   implementations.
   • The design should allow new commands or devices to be added without
   significantly changing the remote control.
+
+
+## Q3
+## Online Order Management System
+Problem Statement
+Suppose you are developing an online shopping system where customers can place
+orders.
+An order can have different statuses during its lifecycle:
+• New
+• Paid
+• Shipped
+• Delivered
+• Cancelled
+The behavior of an order depends on its current status.6
+For example, a new order can be paid or cancelled. A paid order can be shipped, but a
+cancelled order cannot be shipped or paid.
+As the order moves through different stages, the operations that can be performed on
+it also change.
+The system should be designed in a way that keeps the order management logic
+simple and makes it easy to introduce new statuses in the future.
+Requirements
+Create a simple order management system that supports:
+• Creating an order
+• Paying for an order
+• Shipping an order
+• Delivering an order
+• Cancelling an order
+The system should handle valid and invalid operations according to the current status
+of the order.
+For example:
+New → Pay
+Paid → Ship
+Shipped → Deliver
+New → Cancel
+Some operations should not be allowed depending on the current status.
+For example:
+Cancelled → Pay
+Cancelled → Ship7
+Delivered → Cancel
+New → Deliver
+The system should provide an appropriate message when an invalid operation is
+attempted.
+Example
+A possible sequence:
+Pay
+Ship
+Deliver
+Cancel
+Possible output:
+Order paid successfully.
+Order shipped successfully.
+Order delivered successfully.
+Cannot cancel a delivered order.
+Create a small test program that demonstrates different order states and operations.
+Constraints
+• Avoid putting all status-related behavior inside one large conditional structure.
+• The order should behave differently depending on its current status.
+• The design should make it easy to add another order status in the future.
