@@ -25,6 +25,5 @@ public class Client {
 
         invoker.setCommand(new DeliverCommand(order));
         invoker.executeCommand();
-
     }
 }
