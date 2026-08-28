@@ -151,3 +151,91 @@ Constraints
 • Avoid putting all status-related behavior inside one large conditional structure.
 • The order should behave differently depending on its current status.
 • The design should make it easy to add another order status in the future.
+
+
+## Q4
+Food Delivery System
+Problem Statement
+Suppose you are developing a simple Food Delivery System.
+Customers can place food orders from a restaurant. After an order is created, it goes
+through different stages during its lifecycle.
+An order can have different statuses:
+• New
+• Confirmed
+• Preparing
+• Ready
+• Delivered
+• Cancelled
+The behavior of the order depends on its current status.
+The system also supports different delivery methods:
+• Bike Delivery
+• Car Delivery
+• Express Delivery
+Each delivery method calculates its delivery cost differently.
+The system should also support different actions that can be performed on an order,
+such as:
+• Confirm Order
+• Cancel Order
+• Start Preparing9
+• Mark as Ready
+• Deliver Order
+These actions may be requested and executed independently.
+Requirements
+Design and implement a simple Food Delivery System that:
+• Allows creating an order.
+• Allows changing the order status through valid operations.
+• Prevents invalid operations depending on the current status.
+• Supports different delivery methods.
+• Calculates the delivery cost according to the selected delivery method.
+• Allows order operations to be executed independently.
+• Makes the system easy to extend with new order statuses, delivery methods,
+and operations.
+Example
+A possible order lifecycle:
+New
+↓
+Confirmed
+↓
+Preparing
+↓
+Ready
+↓10
+Delivered
+Another possible scenario:
+New
+↓
+Cancelled
+For example, the following operations should behave differently depending on the
+current order status:
+New → Confirm
+Confirmed → Start Preparing
+Preparing → Mark as Ready
+Ready → Deliver
+Delivered → Cancel
+The system should provide an appropriate message when an invalid operation is
+attempted.
+For example:
+Cannot cancel a delivered order.
+Cannot deliver an order that is not ready.
+The delivery cost should also depend on the selected delivery method.
+For example:
+Bike Delivery → $5
+Car Delivery → $8
+Express Delivery → $12
+The exact pricing rules are up to you.11
+Constraints
+• Avoid large conditional structures for handling order statuses.
+• Avoid large conditional structures for handling delivery methods.
+• The component responsible for executing an order operation should not need
+to know the internal details of the order.
+• The design should allow new statuses, delivery methods, and operations to be
+added with minimal changes to existing code.
+Example Scenario
+Create an order with ID 101.
+Then perform the following operations:
+Confirm Order
+Start Preparing
+Mark as Ready
+Deliver Order
+Select a delivery method and calculate the delivery cost.
+Finally, try to cancel the delivered order and handle the result appropriately
